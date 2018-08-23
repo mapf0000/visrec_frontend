@@ -15,6 +15,7 @@ def convert_coordinates():
                     coord_fmt = str(x) + ',' + str(y)
                 else:
                     coord_fmt += ',' +  str(x) + ',' + str(y)
+                    
             print(coord_fmt)
 
 convert_coordinates()

@@ -4,23 +4,45 @@
 <head>
     <meta charset="utf-8">
     <title>jQuery maphilight documentation</title>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="../jquery.maphilight.js"></script>
-    <script type="text/javascript">$(function () {
-            $('.map').maphilight();
-            $('#squidheadlink').mouseover(function (e) {
-                $('#squidhead').mouseover();
-            }).mouseout(function (e) {
-                $('#squidhead').mouseout();
-            }).click(function (e) { e.preventDefault(); });
-        });</script>
+<style>
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+    #imgdiv {
+        width: 30%;
+    }
+</style>
+
 </head>
-
-<img src="summer-holiday.jpg" alt="Summer Style" usemap="#mapname">
+<body>
+        <div id="imgdiv">
+<img src="summer-holiday.jpg" alt="Summer Style" class="map" usemap="#mapname">
 <map name="mapname">
-    <area shape="poly" coords="330,508,321,541,322,583,318,644,319,760,385,770,424,755,428,684,448,758,504,748,553,745,543,648,526,562,522,527,492,515,493,482,452,490,400,483,361,478,392,505,405,520,394,536,367,537,347,523,330,508,330,514" href="http://en.wikipedia.org/" alt="Hose" title="Hose">
-    <area shape="poly" coords="267,288,254,356,253,369,279,359,295,359,299,381,296,392,304,401,304,418,353,470,407,482,464,487,494,475,496,438,492,395,535,369,501,237,451,199,440,186,434,191,439,211,443,229,433,253,428,270,402,232,390,218,373,182,370,173,339,194,299,210,279,226,269,288" href="http://en.wikipedia.org/" alt="Hemd" title="Hemd">
-    <area shape="poly" coords="381,93,397,80,405,93,429,96,429,84,441,88,449,97,462,96,458,73,456,68,436,69,431,75,427,73,417,65,399,68,399,76,384,88,383,94" href="http://en.wikipedia.org/" alt="Brille" title="Brille">
+    <area shape="poly" coords="330,508,321,541,322,583,318,644,319,760,385,770,424,755,428,684,448,758,504,748,553,745,543,648,526,562,522,527,492,515,493,482,452,490,400,483,361,478,392,505,405,520,394,536,367,537,347,523,330,508,330,514" href="#" alt="Hose" title="Hose" data-maphilight='{"stroke":false,"fillColor":"ffffff","fillOpacity":0.5,"shadow": true}'>
+    <area shape="poly" coords="267,288,254,356,253,369,279,359,295,359,299,381,296,392,304,401,304,418,353,470,407,482,464,487,494,475,496,438,492,395,535,369,501,237,451,199,440,186,434,191,439,211,443,229,433,253,428,270,402,232,390,218,373,182,370,173,339,194,299,210,279,226,269,288" href="#" alt="Hemd" title="Hemd" data-maphilight='{"stroke":false,"fillColor":"ffffff","fillOpacity":0.5,"shadow": true}'>
+    <area shape="poly" coords="381,93,397,80,405,93,429,96,429,84,441,88,449,97,462,96,458,73,456,68,436,69,431,75,427,73,417,65,399,68,399,76,384,88,383,94" href="http://en.wikipedia.org/" alt="Brille" title="Brille" data-maphilight='{"stroke":false,"fillColor":"ffffff","fillOpacity":0.5,"shadow": true}'>
 </map>
-
+</div>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="image-map.js"></script>
+<script>
+    $(function () {
+        ImageMap('img[usemap]');
+    });
+    function selectRegion(region) {
+        document.querySelector("img").setAttribute('src', 'image-map-' + region + '.png');
+    }
+</script>
+<script type="text/javascript" src="jquery.maphilight.js"></script>
+<script type="text/javascript">$(function() {
+    $('.map').maphilight();
+    $('#itemlink').mouseover(function(e) {
+        $('#item').mouseover();
+    }).mouseout(function(e) {
+        $('#item').mouseout();
+    }).click(function(e) { e.preventDefault(); });
+});</script>
+</body>
 </html>
